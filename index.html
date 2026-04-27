@@ -28,226 +28,58 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: var(--font-mono); font-size: 13px; min-height: 100vh; }
-
-  header {
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--border);
-    background: var(--bg);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-
-  .header-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-  }
-
-  .title-block h1 {
-    font-family: var(--font-head);
-    font-size: 1.6rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    line-height: 1;
-  }
-
+  header { padding: 1.5rem; border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
+  .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .title-block h1 { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1; }
   .title-block p { color: var(--muted); font-size: 11px; margin-top: 4px; }
-
   .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
-
-  .refresh-btn {
-    background: var(--surface);
-    border: 1px solid var(--border2);
-    border-radius: 6px;
-    color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    padding: 7px 14px;
-    cursor: pointer;
-    transition: all 0.15s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+  .refresh-btn { background: var(--surface); border: 1px solid var(--border2); border-radius: 6px; color: var(--text); font-family: var(--font-mono); font-size: 12px; padding: 7px 14px; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 6px; }
   .refresh-btn:hover { border-color: var(--blue); color: var(--blue); }
   .refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
   .last-updated { font-size: 10px; color: var(--muted); }
-
-  .stats {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-  }
-
-  .stat {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 8px 14px;
-    text-align: center;
-    min-width: 70px;
-  }
+  .stats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; text-align: center; min-width: 70px; }
   .stat-n { font-family: var(--font-head); font-size: 1.4rem; font-weight: 700; line-height: 1; }
   .stat-l { font-size: 10px; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.06em; }
   .stat.s-out .stat-n { color: var(--danger); }
   .stat.s-in .stat-n { color: var(--accent); }
-
   .filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-
-  select, input[type=text] {
-    background: var(--surface);
-    border: 1px solid var(--border2);
-    border-radius: 6px;
-    color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    padding: 7px 10px;
-    outline: none;
-    transition: border-color 0.15s;
-  }
+  select, input[type=text] { background: var(--surface); border: 1px solid var(--border2); border-radius: 6px; color: var(--text); font-family: var(--font-mono); font-size: 12px; padding: 7px 10px; outline: none; transition: border-color 0.15s; }
   select:focus, input[type=text]:focus { border-color: var(--blue); }
   input[type=text] { flex: 1; min-width: 180px; }
-
-  .clear-btn {
-    background: none;
-    border: 1px solid var(--border2);
-    border-radius: 6px;
-    color: var(--muted);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    padding: 7px 12px;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
+  .clear-btn { background: none; border: 1px solid var(--border2); border-radius: 6px; color: var(--muted); font-family: var(--font-mono); font-size: 12px; padding: 7px 12px; cursor: pointer; transition: all 0.15s; }
   .clear-btn:hover { border-color: var(--danger); color: var(--danger); }
-
   main { padding: 1.25rem 1.5rem; }
-
   .result-count { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 8px;
-  }
-
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 12px 14px;
-    transition: border-color 0.15s, background 0.15s;
-  }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; transition: border-color 0.15s, background 0.15s; }
   .card:hover { border-color: var(--border2); background: var(--surface2); }
   .card.out { border-left: 3px solid var(--danger); }
   .card.in { border-left: 3px solid var(--accent); }
   .card.unknown { border-left: 3px solid var(--amber); }
-
   .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
-
   .helmet-id { font-size: 12px; font-weight: 500; color: var(--blue); letter-spacing: 0.02em; }
-
-  .yr-tag {
-    font-size: 10px;
-    background: var(--blue-dim);
-    color: var(--blue);
-    border-radius: 4px;
-    padding: 1px 6px;
-  }
-
-  .badge {
-    font-size: 10px;
-    font-weight: 500;
-    border-radius: 4px;
-    padding: 2px 7px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
+  .yr-tag { font-size: 10px; background: var(--blue-dim); color: var(--blue); border-radius: 4px; padding: 1px 6px; }
+  .badge { font-size: 10px; font-weight: 500; border-radius: 4px; padding: 2px 7px; text-transform: uppercase; letter-spacing: 0.05em; }
   .badge.out { background: var(--danger-dim); color: var(--danger); }
   .badge.in { background: var(--accent-dim); color: var(--accent); }
   .badge.unknown { background: var(--amber-dim); color: var(--amber); }
-
-  .size-tag {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1px 6px;
-    font-size: 10px;
-    color: var(--muted);
-  }
-
-  .athlete-name {
-    font-family: var(--font-head);
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-    margin: 4px 0 3px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
+  .size-tag { background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; font-size: 10px; color: var(--muted); }
+  .athlete-name { font-family: var(--font-head); font-size: 14px; font-weight: 600; color: var(--text); margin: 4px 0 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .card-meta { font-size: 11px; color: var(--muted); }
-
-  .loading-grid {
-    grid-column: 1/-1;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 1rem 0;
-  }
-
-  .source-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--border2);
-    flex-shrink: 0;
-    transition: background 0.3s;
-  }
+  .loading-grid { grid-column: 1/-1; display: flex; flex-direction: column; gap: 6px; padding: 1rem 0; }
+  .source-row { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border2); flex-shrink: 0; transition: background 0.3s; }
   .dot.loading { background: var(--amber); animation: pulse 1s infinite; }
   .dot.done { background: var(--accent); }
   .dot.error { background: var(--danger); }
-
   @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
-
   .empty { grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--muted); }
-
-  .error-banner {
-    background: var(--danger-dim);
-    border: 1px solid var(--danger);
-    border-radius: var(--radius);
-    padding: 10px 14px;
-    font-size: 12px;
-    color: var(--danger);
-    margin-bottom: 1rem;
-    display: none;
-  }
-
-  @media (max-width: 600px) {
-    header { padding: 1rem; }
-    main { padding: 1rem; }
-    .grid { grid-template-columns: 1fr 1fr; gap: 6px; }
-    .title-block h1 { font-size: 1.3rem; }
-  }
+  .error-banner { background: var(--danger-dim); border: 1px solid var(--danger); border-radius: var(--radius); padding: 10px 14px; font-size: 12px; color: var(--danger); margin-bottom: 1rem; display: none; }
+  @media (max-width: 600px) { header { padding: 1rem; } main { padding: 1rem; } .grid { grid-template-columns: 1fr 1fr; gap: 6px; } .title-block h1 { font-size: 1.3rem; } }
 </style>
 </head>
 <body>
-
 <header>
   <div class="header-top">
     <div class="title-block">
@@ -259,31 +91,24 @@
       <span class="last-updated" id="last-updated"></span>
     </div>
   </div>
-
   <div class="stats">
     <div class="stat"><div class="stat-n" id="s-total">—</div><div class="stat-l">Total</div></div>
     <div class="stat s-out"><div class="stat-n" id="s-out">—</div><div class="stat-l">Out</div></div>
     <div class="stat s-in"><div class="stat-n" id="s-in">—</div><div class="stat-l">In</div></div>
     <div class="stat"><div class="stat-n" id="s-unk">—</div><div class="stat-l">Unknown</div></div>
   </div>
-
   <div class="filters">
-    <select id="f-year" onchange="render()">
-      <option value="all">All years</option>
-    </select>
+    <select id="f-year" onchange="render()"><option value="all">All years</option></select>
     <select id="f-status" onchange="render()">
       <option value="all">All statuses</option>
       <option value="out">Handed out</option>
       <option value="in">Checked in</option>
     </select>
-    <select id="f-size" onchange="render()">
-      <option value="all">All sizes</option>
-    </select>
+    <select id="f-size" onchange="render()"><option value="all">All sizes</option></select>
     <input type="text" id="f-search" placeholder="Search helmet ID or athlete..." oninput="render()">
     <button class="clear-btn" onclick="clearFilters()">Clear</button>
   </div>
 </header>
-
 <main>
   <div class="error-banner" id="error-banner"></div>
   <div class="result-count" id="result-count"></div>
@@ -291,18 +116,17 @@
     <div class="loading-grid" id="loading-grid"></div>
   </div>
 </main>
-
 <script>
 const SOURCES = [
   { label: '2024', years: ['24'], url: 'https://script.google.com/macros/s/AKfycbxSzTZNc1XXetlud257ZuxTIY7a5nPSOUw1ayZX5rIURq9eymput6ofOA1nVLuhI4bM1w/exec' },
-  { label: '2023',        years: ['23'],      url: 'https://script.google.com/macros/s/AKfycbxbhWBqFb1BfItxVCP-BlsdR3xn2ZZk6YRjWGAZ4VAPC60nGn4zaEuBRsw2Fcn8Sp9F9Q/exec' },
-  { label: '2022',        years: ['22'],      url: 'https://script.google.com/macros/s/AKfycbzj2Uh8BM-wvjCohwEv2qaRG-nitjeMXSxhgVvMqvZwIaYmS_1j4reKlUxw-oq4Uvb8/exec' },
-  { label: '2021',        years: ['21'],      url: 'https://script.google.com/macros/s/AKfycbwA5WCSV-pVR5-pKBKa0pgpb3qIusWKaYIf6sSTExdpVV1leXDm7mrhOV7EHTwfYNoW/exec' },
-  { label: '2020',        years: ['20'],      url: 'https://script.google.com/macros/s/AKfycbxzqmx4IB6mODXsuiBxGuIPQ-Dm4Te2ueYJAdoCgTFF_rxxBAfccURZwFVr2kTafuU/exec' },
-  { label: '2019',        years: ['19'],      url: 'https://script.google.com/macros/s/AKfycbxu7LRIQNnPSDL-YuE-Bv2huZ0J9UpD8dKGW6H_XCf3bMC8WH4v5rGbq6vz6n2s3pWhMw/exec' },
-  { label: '2018',        years: ['18'],      url: 'https://script.google.com/macros/s/AKfycbxO5cpVbD0EXXdZwoYfDY984w2APYawlk7cLH1ePgT2CuVf6zkK-T2bGNhkXrZ8BXw-/exec' },
+  { label: '2023', years: ['23'], url: 'https://script.google.com/macros/s/AKfycbxbhWBqFb1BfItxVCP-BlsdR3xn2ZZk6YRjWGAZ4VAPC60nGn4zaEuBRsw2Fcn8Sp9F9Q/exec' },
+  { label: '2022', years: ['22'], url: 'https://script.google.com/macros/s/AKfycbzj2Uh8BM-wvjCohwEv2qaRG-nitjeMXSxhgVvMqvZwIaYmS_1j4reKlUxw-oq4Uvb8/exec' },
+  { label: '2021', years: ['21'], url: 'https://script.google.com/macros/s/AKfycbwA5WCSV-pVR5-pKBKa0pgpb3qIusWKaYIf6sSTExdpVV1leXDm7mrhOV7EHTwfYNoW/exec' },
+  { label: '2020', years: ['20'], url: 'https://script.google.com/macros/s/AKfycbxzqmx4IB6mODXsuiBxGuIPQ-Dm4Te2ueYJAdoCgTFF_rxxBAfccURZwFVr2kTafuU/exec' },
+  { label: '2019', years: ['19'], url: 'https://script.google.com/macros/s/AKfycbxu7LRIQNnPSDL-YuE-Bv2huZ0J9UpD8dKGW6H_XCf3bMC8WH4v5rGbq6vz6n2s3pWhMw/exec' },
+  { label: '2018', years: ['18'], url: 'https://script.google.com/macros/s/AKfycbxO5cpVbD0EXXdZwoYfDY984w2APYawlk7cLH1ePgT2CuVf6zkK-T2bGNhkXrZ8BXw-/exec' },
+  { label: '2017', years: ['17'], url: 'https://script.google.com/macros/s/AKfycbxZ4BMn-pocoyBbh9SGwPkHACl5Pj2ltZ-Pu7AVH_ga03svbeNMwCeYiXLeOMFUKaKKXw/exec' },
 ];
-
 function getSize(id) {
   const u = id.toUpperCase();
   if (u.includes('XXS')) return 'XXS';
@@ -314,14 +138,11 @@ function getSize(id) {
   if (u.match(/-S[-\d]/)) return 'S';
   return '?';
 }
-
 function guessYear(sheetName) {
   const m = sheetName.match(/^(\d{2})H-/);
   return m ? m[1] : '??';
 }
-
 let allHelmets = [];
-
 function showLoading() {
   const lg = document.getElementById('loading-grid');
   lg.innerHTML = SOURCES.map((s, i) =>
@@ -329,7 +150,6 @@ function showLoading() {
   ).join('');
   document.getElementById('grid').appendChild(lg);
 }
-
 async function fetchSource(source, index) {
   const dot = document.getElementById(`dot-${index}`);
   const lbl = document.getElementById(`src-${index}`);
@@ -343,15 +163,7 @@ async function fetchSource(source, index) {
       const action = (entry.action || '').toLowerCase();
       const status = action.includes('hand') ? 'out' : action.includes('check') ? 'in' : 'unknown';
       const year = guessYear(sheet);
-      helmets.push({
-        sheet,
-        ts: entry.ts || null,
-        action: entry.action || '',
-        athlete: entry.athlete || '',
-        status,
-        year,
-        size: getSize(sheet)
-      });
+      helmets.push({ sheet, ts: entry.ts || null, action: entry.action || '', athlete: entry.athlete || '', status, year, size: getSize(sheet) });
     }
     if (dot) { dot.classList.remove('loading'); dot.classList.add('done'); }
     if (lbl) lbl.textContent = `${source.label} — ${helmets.length} helmets loaded`;
@@ -362,24 +174,19 @@ async function fetchSource(source, index) {
     return [];
   }
 }
-
 async function loadAll() {
   const btn = document.getElementById('refresh-btn');
   btn.disabled = true;
   btn.textContent = '↺ Loading...';
   allHelmets = [];
-
   showLoading();
   document.getElementById('s-total').textContent = '—';
   document.getElementById('s-out').textContent = '—';
   document.getElementById('s-in').textContent = '—';
   document.getElementById('s-unk').textContent = '—';
   document.getElementById('subtitle').textContent = 'Fetching live data...';
-
   const results = await Promise.all(SOURCES.map((s, i) => fetchSource(s, i)));
   allHelmets = results.flat();
-
-  // Deduplicate by sheet name — keep most recent if same sheet appears in multiple sources
   const seen = new Map();
   for (const h of allHelmets) {
     if (!seen.has(h.sheet) || (h.ts && (!seen.get(h.sheet).ts || h.ts > seen.get(h.sheet).ts))) {
@@ -387,32 +194,19 @@ async function loadAll() {
     }
   }
   allHelmets = [...seen.values()];
-
-  // Populate year filter
   const years = [...new Set(allHelmets.map(h => h.year))].sort().reverse();
   const ySel = document.getElementById('f-year');
-  ySel.innerHTML = '<option value="all">All years</option>' +
-    years.map(y => `<option value="${y}">20${y}</option>`).join('');
-
-  // Populate size filter
+  ySel.innerHTML = '<option value="all">All years</option>' + years.map(y => `<option value="${y}">20${y}</option>`).join('');
   const sizes = [...new Set(allHelmets.map(h => h.size))].sort();
   const sSel = document.getElementById('f-size');
-  sSel.innerHTML = '<option value="all">All sizes</option>' +
-    sizes.map(s => `<option value="${s}">${s}</option>`).join('');
-
-  document.getElementById('last-updated').textContent =
-    'Last updated: ' + new Date().toLocaleTimeString('en-CA', { hour: '2-digit', minute: '2-digit' });
-
+  sSel.innerHTML = '<option value="all">All sizes</option>' + sizes.map(s => `<option value="${s}">${s}</option>`).join('');
+  document.getElementById('last-updated').textContent = 'Last updated: ' + new Date().toLocaleTimeString('en-CA', { hour: '2-digit', minute: '2-digit' });
   btn.disabled = false;
   btn.textContent = '↺ Refresh';
-
-  // Clear loading grid
   const lg = document.getElementById('loading-grid');
   if (lg) lg.remove();
-
   render();
 }
-
 function clearFilters() {
   document.getElementById('f-year').value = 'all';
   document.getElementById('f-status').value = 'all';
@@ -420,13 +214,11 @@ function clearFilters() {
   document.getElementById('f-search').value = '';
   render();
 }
-
 function render() {
   const yr = document.getElementById('f-year').value;
   const st = document.getElementById('f-status').value;
   const sz = document.getElementById('f-size').value;
   const q  = document.getElementById('f-search').value.toLowerCase();
-
   const filtered = allHelmets.filter(h => {
     if (yr !== 'all' && h.year !== yr) return false;
     if (st !== 'all' && h.status !== st) return false;
@@ -434,58 +226,30 @@ function render() {
     if (q && !h.sheet.toLowerCase().includes(q) && !(h.athlete||'').toLowerCase().includes(q)) return false;
     return true;
   });
-
   const out = filtered.filter(h => h.status === 'out').length;
   const inn = filtered.filter(h => h.status === 'in').length;
   const unk = filtered.filter(h => h.status === 'unknown').length;
-
   document.getElementById('s-total').textContent = filtered.length;
   document.getElementById('s-out').textContent = out;
   document.getElementById('s-in').textContent = inn;
   document.getElementById('s-unk').textContent = unk;
-
-  const yrLabel = yr === 'all' ? '2018–2024' : '20' + yr;
-  document.getElementById('subtitle').textContent =
-    `${allHelmets.length} helmets · ${yrLabel} · Live from Google Sheets`;
-  document.getElementById('result-count').textContent =
-    filtered.length === allHelmets.length
-      ? `Showing all ${filtered.length} helmets`
-      : `${filtered.length} of ${allHelmets.length} helmets`;
-
-  if (!filtered.length) {
-    document.getElementById('grid').innerHTML = '<div class="empty">No helmets match your filters.</div>';
-    return;
-  }
-
-  // Sort: handed out first, then by year desc, then sheet name
+  const yrLabel = yr === 'all' ? '2017–2024' : '20' + yr;
+  document.getElementById('subtitle').textContent = `${allHelmets.length} helmets · ${yrLabel} · Live from Google Sheets`;
+  document.getElementById('result-count').textContent = filtered.length === allHelmets.length ? `Showing all ${filtered.length} helmets` : `${filtered.length} of ${allHelmets.length} helmets`;
+  if (!filtered.length) { document.getElementById('grid').innerHTML = '<div class="empty">No helmets match your filters.</div>'; return; }
   filtered.sort((a, b) => {
     if (a.status === 'out' && b.status !== 'out') return -1;
     if (b.status === 'out' && a.status !== 'out') return 1;
     if (a.year !== b.year) return b.year.localeCompare(a.year);
     return a.sheet.localeCompare(b.sheet);
   });
-
   document.getElementById('grid').innerHTML = filtered.map(h => {
     const ath = h.athlete && h.athlete.length > 1 ? h.athlete : '—';
-    const dt  = h.ts
-      ? new Date(h.ts + 'T12:00:00').toLocaleDateString('en-CA', { month:'short', day:'numeric', year:'numeric' })
-      : '—';
+    const dt  = h.ts ? new Date(h.ts + 'T12:00:00').toLocaleDateString('en-CA', { month:'short', day:'numeric', year:'numeric' }) : '—';
     const bl  = h.status === 'out' ? 'Handed out' : h.status === 'in' ? 'Checked in' : 'Unknown';
-    return `<div class="card ${h.status}">
-      <div class="card-top">
-        <span class="helmet-id">${h.sheet}</span>
-        <span class="yr-tag">20${h.year}</span>
-      </div>
-      <div class="card-top" style="margin-bottom:4px">
-        <span class="badge ${h.status}">${bl}</span>
-        <span class="size-tag">${h.size}</span>
-      </div>
-      <div class="athlete-name">${ath}</div>
-      <div class="card-meta">${dt}</div>
-    </div>`;
+    return `<div class="card ${h.status}"><div class="card-top"><span class="helmet-id">${h.sheet}</span><span class="yr-tag">20${h.year}</span></div><div class="card-top" style="margin-bottom:4px"><span class="badge ${h.status}">${bl}</span><span class="size-tag">${h.size}</span></div><div class="athlete-name">${ath}</div><div class="card-meta">${dt}</div></div>`;
   }).join('');
 }
-
 loadAll();
 </script>
 </body>
